@@ -1,8 +1,8 @@
-# ${project.name}
+# ${data.name}
 
- [![License: ${project.license}](${project.licenseBadge})](${project.licenseLink})
+ ${data.licenseBadge}
 
-${project.description}
+${data.description}
 
 ## Table Of Contents
 1. Installation
@@ -14,30 +14,32 @@ ${project.description}
 
 ### Installation
 
-${project.installation}
+${data.installation}
 
 ### Usage
 
-${project.usage}
+${data.usage}
 
 ### License
 
-This project is under the ${project.license} license.
+${data.licenseBadge}
+
+This data is under the ${data.license} license.
 
 ### Contributing
 
-${project.contributing}
+${data.contributing}
 
 ### Tests
 
-${project.tests}
+${data.tests}
 
 ### Questions
 
 What is the link to my GitHub?
 
-- Link to my GitHub profile: [${author.github}](${author.github})
+- Link to my GitHub profile: [https://github.com/${data.github}](https://github.com/${data.github})
 
 How can you contact me?
 
-- Contact me through my email: [${author.email}](mailto:${author.email})
+- Contact me through my email: [${data.email}](mailto:${data.email})

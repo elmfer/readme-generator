@@ -3,6 +3,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
 const MarkdownGenerator = require('./utils/generateMarkdown');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 const OUTPUT_FILE_PATH = "./out";
 const OUTPUT_FILE_NAME = "README.md";
@@ -85,12 +86,17 @@ function writeToFile(fileName, data) {
 }
 
 function promptUser() {
-  return inquirer.prompt(questions).then((answers) => console.log(answers));
+  return inquirer.prompt(questions);
 }
 
 // TODO: Create a function to initialize app
 function init() {
-  promptUser();
+  promptUser()
+  .then((answers) => {
+    const data = generateMarkdown(answers);
+
+    writeToFile(OUTPUT_FILE_NAME, data);
+  })
 }
 
 // Function call to initialize app
