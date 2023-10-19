@@ -3,6 +3,9 @@
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  
 A command line interface tool that allows you to quickly create a professional README file for your next project. Easy to use with the help of the inquirer library. Fun fact, this README for this program is created by this program!
+
+Walkthrough: 
+[![Watch the video](./assets/images/screenshot.png)](https://drive.google.com/file/d/1747SIZteSaYqWoEHy3-_QuWE2UMkP4BK/view?usp=share_link)
  
 ## Table Of Contents
 1. [Installation](#installation)
