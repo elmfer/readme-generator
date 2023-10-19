@@ -1,14 +1,14 @@
-// TODO: Include packages needed for this application
-const inquirer = require('inquirer');
-const fs = require('fs');
-const path = require('path');
-const MarkdownGenerator = require('./utils/generateMarkdown');
-const generateMarkdown = require('./utils/generateMarkdown');
+// Include packages needed for this application
+const inquirer = require('inquirer'); // Asks user for input to write to template
+const fs = require('fs'); // Filesystem for creating and writing files
+const path = require('path'); // File paths util for joining paths
+const generateMarkdown = require('./utils/generateMarkdown'); // Markdown generator util
 
+// File names and paths for output file
 const OUTPUT_FILE_PATH = "./out";
 const OUTPUT_FILE_NAME = "README.md";
 
-// TODO: Create an array of questions for user input
+// List of questions for user to fill in
 const questions = [
   {
     message: "Project name",
@@ -44,6 +44,7 @@ const questions = [
     message: "License",
     type: 'list',
     name: 'license',
+    // List of licenses all sourced from: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
     choices: [
       "Apache 2.0", 
       "Boost 1.0",
@@ -77,7 +78,7 @@ const questions = [
   }
 ];
 
-// TODO: Create a function to write README file
+// A README file writer
 function writeToFile(fileName, data) {
   if(!fs.existsSync(OUTPUT_FILE_PATH))
     fs.mkdirSync(OUTPUT_FILE_PATH);
@@ -85,16 +86,20 @@ function writeToFile(fileName, data) {
   fs.writeFileSync(path.join(OUTPUT_FILE_PATH, fileName), data);
 }
 
+// Inquiery user for inputs
 function promptUser() {
   return inquirer.prompt(questions);
 }
 
-// TODO: Create a function to initialize app
+// Main function, called upon startup
 function init() {
+  //Inquiry user for inputs
   promptUser()
   .then((answers) => {
+    // Then generate markdown for the inquiry
     const data = generateMarkdown(answers);
 
+    // Finally, write markdown into a file
     writeToFile(OUTPUT_FILE_NAME, data);
   })
 }

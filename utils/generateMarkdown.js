@@ -1,6 +1,7 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// Returns the corresponding license badge
+// If there is no license or it is not found, return an empty string
 function renderLicenseBadge(license) {
+  // List of license badges all sourced from: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
   const badgeMap = {
     "Apache 2.0": " [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)",
     "Boost 1.0": " [![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)",
@@ -25,9 +26,10 @@ function renderLicenseBadge(license) {
   return badgeMap[license] ? badgeMap[license] : "";
 }
 
-// TODO: Create a function that returns the license link
+// Returns the corrisponding link for a license
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  // List of license links all sourced from: https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
   const linkMap = {
     "Apache 2.0": "https://opensource.org/licenses/Apache-2.0",
     "Boost 1.0": "https://www.boost.org/LICENSE_1_0.txt",
@@ -52,23 +54,28 @@ function renderLicenseLink(license) {
   return linkMap[license] ? linkMap[license] : "";
 }
 
-// TODO: Create a function that returns the license section of README
+// Returns the license section of README in Markdown
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   const licenseLink = renderLicenseLink(license);
   const licenseBadge = renderLicenseBadge(license);
+
+  // Return empty license section if there is no license or it is not recognized
+  if(licenseLink === "") return "";
 
   return `${licenseBadge}
 
 This project in under the ${license}. Learn more about the license here: ${licenseLink}`
 }
 
-// TODO: Create a function to generate markdown for README
+// Generate markdown README from a template
 function generateMarkdown(data) {
+  // Get all license infomation before putting it into the template
   data.licenseLink = renderLicenseLink(data.license);
   data.licenseBadge = renderLicenseBadge(data.license);
   data.licenseSection = renderLicenseSection(data.license);
 
+  // README in Markdown template, using string literals to fill in information
   return `# ${data.name}
 
 ${data.licenseBadge}
@@ -115,4 +122,5 @@ How can you contact me?
 `;
 }
 
+// Make this function available to outside scripts
 module.exports = generateMarkdown;
