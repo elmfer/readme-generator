@@ -54,12 +54,20 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  const licenseLink = renderLicenseLink(license);
+  const licenseBadge = renderLicenseBadge(license);
+
+  return `${licenseBadge}
+
+This project in under the ${license}. Learn more about the license here: ${licenseLink}`
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   data.licenseLink = renderLicenseLink(data.license);
   data.licenseBadge = renderLicenseBadge(data.license);
+  data.licenseSection = renderLicenseSection(data.license);
 
   return `# ${data.name}
 
@@ -68,12 +76,12 @@ ${data.licenseBadge}
 ${data.description}
  
 ## Table Of Contents
-1. Installation
-2. Usage
-3. License
-4. Contributing
-5. Tests
-6. Questions
+1. [Installation](#installation)
+2. [Usage](#usage)
+3. [License](#license)
+4. [Contributing](#contributing)
+5. [Tests](#tests)
+6. [Questions](#questions)
  
 ### Installation
  
@@ -85,10 +93,7 @@ ${data.usage}
  
 ### License
  
-${data.licenseBadge}
- 
-This data is under the ${data.license} license.
-Learn more about the license: ${data.licenseLink}
+${data.licenseSection}
  
 ### Contributing
  
