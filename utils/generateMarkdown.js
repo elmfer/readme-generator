@@ -65,7 +65,7 @@ function renderLicenseSection(license) {
 
   return `${licenseBadge}
 
-This project in under the ${license}. Learn more about the license here: ${licenseLink}`
+This project in under the ${license} license. Learn more about it here: ${licenseLink}`
 }
 
 // Generate markdown README from a template
