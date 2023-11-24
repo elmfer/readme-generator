@@ -17,7 +17,7 @@ Walkthrough:
  
 ### Installation
  
-Make sure you have NodeJS v18.18.0 or greater installed on your system. Then clone this repository. Be sure to run `npm install` before doing anything to the project. Lastly, run `node index.js` to run the program.
+Make sure you have NodeJS v18.18.0 or greater installed on your system. Then clone this repository. Be sure to run `npm install` before doing anything to the project. Lastly, run `npm run start` to run the program.
  
 ### Usage
  
